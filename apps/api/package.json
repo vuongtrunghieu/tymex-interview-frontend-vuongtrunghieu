@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "tymex-mock-server-nodejs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --env-file=.env server.js",
+    "start": "node --env-file=.env server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "devDependencies": {
+    "@fpoon-tymex/typescript-config": "workspace:*",
+    "@types/node": "20.14.8"
+  }
+}

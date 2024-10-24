@@ -1,0 +1,25 @@
+{
+  "name": "fpoon-tymex",
+  "private": true,
+  "author": "Hieu Vuong Trung <fpoon@protonmail.com>",
+  "scripts": {
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "dev": "turbo dev --parallel",
+    "dev:web": "turbo dev --filter=@fpoon-tymex/web",
+    "dev:api": "turbo dev --filter=@fpoon-tymex/api",
+    "start:web": "turbo start --filter=@fpoon-tymex/web",
+    "start:api": "turbo start --filter=@fpoon-tymex/api",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "turbo": "2.2.3"
+  },
+  "packageManager": "pnpm@9.12.2",
+  "engines": {
+    "node": ">=20"
+  }
+}
