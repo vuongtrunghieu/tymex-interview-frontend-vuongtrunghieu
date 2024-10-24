@@ -1,4 +1,3 @@
 {
-  "extends": "@fpoon-tymex/typescript-config/react-library.json",
-  "include": ["."],
+  "extends": "@fpoon-tymex/typescript-config/react-library.json"
 }

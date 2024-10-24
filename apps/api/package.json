@@ -1,11 +1,14 @@
 {
-  "name": "api",
+  "name": "@fpoon-tymex/api",
   "version": "1.0.0",
   "description": "tymex-mock-server-nodejs",
   "main": "index.js",
   "scripts": {
     "dev": "node --env-file=.env server.js",
-    "start": "node --env-file=.env server.js"
+    "start": "node --env-file=.env server.js",
+    "clean": "git clean -xdf .turbo node_modules",
+    "lint": "biome lint",
+    "format": "biome format --write ."
   },
   "keywords": [],
   "author": "",

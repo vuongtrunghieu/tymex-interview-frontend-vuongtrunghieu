@@ -1,12 +1,15 @@
 {
-  "name": "web",
+  "name": "@fpoon-tymex/web",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "next build",
+    "start": "next start",
+    "clean": "git clean -xdf .next .turbo node_modules",
     "dev": "next dev",
-    "lint": "",
-    "start": "next start"
+    "lint": "biome lint",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fpoon-tymex/ui": "workspace:*",
@@ -18,7 +21,7 @@
   "devDependencies": {
     "@fpoon-tymex/typescript-config": "workspace:*",
     "@t3-oss/env-nextjs": "^0.11.1",
-    "@types/node": "^20.11.24",
+    "@types/node": "20.14.8",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "typescript": "^5.5.4"

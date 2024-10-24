@@ -12,10 +12,16 @@
     "start:web": "turbo start --filter=@fpoon-tymex/web",
     "start:api": "turbo start --filter=@fpoon-tymex/api",
     "lint": "turbo lint",
-    "format": "turbo format",
-    "test": "turbo run test"
+    "lint:repo": "pnpx sherif@latest",
+    "lint:repo:fix": "pnpx sherif@latest --fix",
+    "format": "turbo format --parallel",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test --parallel",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "husky": "^9.1.6",
     "turbo": "2.2.3"
   },
   "packageManager": "pnpm@9.12.2",
