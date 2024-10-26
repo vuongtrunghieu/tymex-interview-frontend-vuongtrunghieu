@@ -42,6 +42,9 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 - [ ] API server deployment
 - [ ] Update deployment documentation
 
+#### Misc
+- [ ] Font Drone Ranger Pro is missing for Header nav links
+
 ## Development
 
 ### Prerequisites
