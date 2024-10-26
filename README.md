@@ -6,6 +6,8 @@ This is the repo contains my assignment.
 
 See [ANALYSIS.md](./ANALYSIS.md) for project requirements and analysis.
 
+See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
+
 ### Implementation checklist
 
 #### Functional capabilities
