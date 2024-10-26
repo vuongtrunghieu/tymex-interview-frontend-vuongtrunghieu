@@ -11,11 +11,11 @@
     "dev:api": "turbo dev --filter=@fpoon-tymex/api",
     "start:web": "turbo start --filter=@fpoon-tymex/web",
     "start:api": "turbo start --filter=@fpoon-tymex/api",
-    "lint": "turbo lint",
+    "lint": "turbo lint --parallel",
     "lint:repo": "pnpx sherif@latest",
     "lint:repo:fix": "pnpx sherif@latest --fix",
     "format": "turbo format --parallel",
-    "typecheck": "turbo typecheck",
+    "typecheck": "turbo typecheck --parallel",
     "test": "turbo test --parallel",
     "prepare": "husky"
   },

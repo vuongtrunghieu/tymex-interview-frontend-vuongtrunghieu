@@ -1,3 +1,5 @@
+import '@fpoon-tymex/ui/globals.css';
+
 export default function RootLayout({
   children,
 }: {
