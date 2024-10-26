@@ -15,11 +15,29 @@ import {
 import { Separator } from '@fpoon-tymex/ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from '@fpoon-tymex/ui/sheet';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
   // TODO Use i18n if we support localization
   const [language, setLanguage] = useState('en');
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Scroll threshold in px
+      const THRESHOLD = 10;
+      const currentScrollPos = window.scrollY;
+      // Hide the header when the user scrolls down
+      // Show the header when the user scrolls up
+      setVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < THRESHOLD,
+      );
+      setPrevScrollPos(currentScrollPos);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
 
   // Using hardcoded href because it doesn't matter for this assessment
   // Right now we only need /marketplace
@@ -33,7 +51,12 @@ const Footer = () => {
   ];
 
   return (
-    <header className="fixed w-full top-0 z-50 transition-transform duration-300">
+    <header
+      className={cn(
+        'fixed w-full top-0 z-50 transition-transform duration-300',
+        visible ? 'translate-y-0' : '-translate-y-full',
+      )}
+    >
       <div className="backdrop-blur-0 bg-black/60 border-b border-gray-800 py-2 lg:py-4">
         <div className="hidden container mx-auto lg:flex justify-between items-center">
           <nav>
