@@ -42,6 +42,7 @@
         - Dropdown for filtering
         - Scrollable area for cards (with Grid layout)
             + Cards with images
+                - We have 5 characters (assassin, neon_guy, mafia_england, basketball_girl, the_dj), 4 rarity types → 20 variants
     + Footer
         - Links
         - Misc.
