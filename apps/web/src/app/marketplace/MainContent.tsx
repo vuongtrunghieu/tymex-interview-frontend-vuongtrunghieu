@@ -4,8 +4,6 @@ import {
   ItemsContainer,
   ItemsContainerLoading,
 } from '@/app/marketplace/ItemsContainer';
-import { ViewMore } from '@/app/marketplace/ViewMore';
-import { Button } from '@fpoon-tymex/ui/button';
 import { Suspense } from 'react';
 
 const MainContent = async () => {
@@ -26,10 +24,6 @@ const MainContent = async () => {
           <Suspense fallback={<ItemsContainerLoading />}>
             <ItemsContainer />
           </Suspense>
-
-          <div className="pt-10 flex justify-center">
-            <ViewMore />
-          </div>
         </div>
       </div>
     </div>

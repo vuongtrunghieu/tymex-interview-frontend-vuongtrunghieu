@@ -1,5 +1,6 @@
 import { getProducts } from '@/actions/products/get-products-action';
 import { ItemCard, ItemCardLoading } from '@/app/marketplace/ItemCard';
+import { ViewMore } from '@/app/marketplace/ViewMore';
 import { searchParamsCache } from '@/app/marketplace/search-params';
 // @ts-ignore
 import type { IProduct } from '@fpoon-tymex/api';
@@ -30,13 +31,18 @@ export const ItemsContainer = async () => {
   }
 
   return (
-    <ScrollArea className="h-[calc(100vh-2rem)] pr-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
-        {result.data.map((item: IProduct, index: number) => (
-          <ItemCard item={item} key={`${item?.id}_${index}`} />
-        ))}
+    <>
+      <ScrollArea className="h-[calc(100vh-2rem)] pr-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
+          {result.data.map((item: IProduct, index: number) => (
+            <ItemCard item={item} key={`${item?.id}_${index}`} />
+          ))}
+        </div>
+      </ScrollArea>
+      <div className="pt-10 flex justify-center">
+        <ViewMore currentLength={result.data.length} />
       </div>
-    </ScrollArea>
+    </>
   );
 };
 
