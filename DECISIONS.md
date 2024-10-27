@@ -40,8 +40,10 @@
     + By utilizing these tools, we establish a solid foundation for maintaining good code quality and optimizing
       development time.
 - Follow-up Actions
-    + [ ] We haven't set up any test for this project yet.
-    + [ ] Check if we need to lower the rule levels for linting/typechecking if something is annoying to fix; because due to
+    + [x] We haven't set up any test for this project yet.
+      - Updated 2024-10-27: added Vitest, Jest for component testing, and Playwright for E2E testing.
+    + [ ] Check if we need to lower the rule levels for linting/typechecking if something is annoying to fix; because
+      due to
       time constraint, I don't aim to be perfect right at the start.
     + [ ] If we have extra time, we might set up a simple Github CI pipeline to run checks on every commit.
 
@@ -61,7 +63,8 @@
     + In the future, we may consider replacing Shadcn with Ant Design to fulfill additional requirements, should our
       timeline permit.
 - Impact:
-    - High, but assumed I'm familiar with the tools, we can get project developed fast, and still have flexibility for UI
+    - High, but assumed I'm familiar with the tools, we can get project developed fast, and still have flexibility for
+      UI
       component changes.
 - Follow-up Actions
     + [ ] Replace Shadcn with Ant Design
