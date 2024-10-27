@@ -10,6 +10,7 @@ import {
 } from '@fpoon-tymex/ui/card';
 import { cn } from '@fpoon-tymex/ui/cn';
 import { Icons } from '@fpoon-tymex/ui/icons';
+import { Skeleton } from '@fpoon-tymex/ui/skeleton';
 import {
   Tooltip,
   TooltipContent,
@@ -131,6 +132,20 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
           </Tooltip>
         </TooltipProvider>
       </CardFooter>
+    </Card>
+  );
+};
+
+export const ItemCardLoading = () => {
+  return (
+    <Card className="bg-gray-800">
+      <CardHeader className="p-4">
+        <Skeleton className="w-full aspect-square" />
+      </CardHeader>
+      <CardContent className="px-4 space-y-2">
+        <Skeleton className="w-[200px] h-4" />
+        <Skeleton className="w-[100px] h-4" />
+      </CardContent>
     </Card>
   );
 };
