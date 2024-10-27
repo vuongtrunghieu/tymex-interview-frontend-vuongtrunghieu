@@ -12,11 +12,11 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 
 #### Functional capabilities
 - [ ] UI looks and feels
-- [ ] API integration
+- [x] API integration
 - [ ] Data refresh interval
-- [ ] Pagination (or lazy-loading) of data
-- [ ] Search & filter
-- [ ] Sorting
+- [x] Pagination (or lazy-loading) of data
+- [x] Search & filter
+- [x] Sorting
 
 #### Non-functional requirements
 
@@ -30,7 +30,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 
 #### Code quality
 
-- [ ] Project scaffolding
+- [x] Project scaffolding
 - [ ] Unit testing
 - [ ] Integration testing
 - [ ] E2E testing
