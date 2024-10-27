@@ -56,6 +56,7 @@ const Footer = () => {
         'fixed w-full top-0 z-50 transition-transform duration-300',
         visible ? 'translate-y-0' : '-translate-y-full',
       )}
+      data-testid="page-header"
     >
       <div className="backdrop-blur-0 bg-black/60 border-b border-gray-800 py-2 lg:py-4">
         <div className="hidden container mx-auto lg:flex justify-between items-center">
@@ -82,6 +83,7 @@ const Footer = () => {
             <Button
               variant="default"
               className="bg-pink-500 hover:bg-pink-600 text-white"
+              data-testid="connect-wallet-button"
             >
               Connect Wallet
             </Button>
@@ -89,7 +91,10 @@ const Footer = () => {
               value={language}
               onValueChange={(value) => setLanguage(value)}
             >
-              <SelectTrigger className="border-0 outline-0 space-x-2">
+              <SelectTrigger
+                className="border-0 outline-0 space-x-2"
+                data-testid="language-selector"
+              >
                 <Icons.RadixGlobeIcon className="w-6 h-6" />
               </SelectTrigger>
               <SelectContent>
@@ -104,11 +109,9 @@ const Footer = () => {
         </div>
         {/* Mobile Menu */}
         <div className="lg:hidden px-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <span className="px-2 text-lg md:text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-white rounded-sm">
-              Marketplace
-            </span>
-          </Link>
+          <span className="px-2 text-lg md:text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-white rounded-sm">
+            Marketplace
+          </span>
 
           <Sheet>
             <SheetTrigger asChild>

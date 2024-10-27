@@ -10,7 +10,8 @@
       ".turbo",
       "packages/tsconfig",
       ".trigger",
-      ".react-email"
+      ".react-email",
+      "coverage"
     ],
     "enabled": true,
     "rules": {

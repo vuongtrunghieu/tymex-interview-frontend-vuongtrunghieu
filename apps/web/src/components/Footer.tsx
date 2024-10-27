@@ -4,7 +4,7 @@ const Footer = () => {
   // TODO complete this footer
 
   return (
-    <footer className="bg-gray-800 py-8">
+    <footer className="bg-gray-800 py-8" data-testid="page-footer">
       <div className="container mx-auto grid grid-cols-3 gap-8">
         <div>
           <h3 className="text-lg font-semibold mb-4">NAVIGATION</h3>

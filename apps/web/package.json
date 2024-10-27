@@ -8,6 +8,8 @@
     "clean": "git clean -xdf .next .turbo node_modules",
     "dev": "next dev",
     "lint": "biome lint",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit"
   },
@@ -21,9 +23,16 @@
   "devDependencies": {
     "@fpoon-tymex/typescript-config": "workspace:*",
     "@t3-oss/env-nextjs": "^0.11.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.2",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "20.14.8",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
-    "typescript": "5.5.4"
+    "@vitejs/plugin-react": "^4.3.3",
+    "@vitest/coverage-v8": "^2.1.3",
+    "jsdom": "^25.0.1",
+    "typescript": "5.5.4",
+    "vitest": "^2.1.3"
   }
 }
