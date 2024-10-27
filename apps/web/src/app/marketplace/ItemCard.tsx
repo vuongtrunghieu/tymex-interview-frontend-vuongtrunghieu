@@ -99,8 +99,26 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
       </CardHeader>
       <CardContent className="px-4 py-2">
         <div className="space-y-1">
-          <h3 className="text-lg font-semibold line-clamp-2">{item?.title}</h3>
-          <span className="text-base font-medium inline-flex gap-2">
+          <div>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <h3 className="text-lg font-semibold line-clamp-2">
+                    {item?.title}
+                  </h3>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>
+                    Theme: <span className="font-semibold">{item?.theme}</span>
+                  </p>
+                  <p>
+                    Tier: <span className="font-semibold">{item?.tier}</span>
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+          <span className="text-sm font-medium inline-flex gap-2">
             <Image src={ethIcon} alt="eth" width={8} height={8} />
             {item?.price.toFixed(2)} ETH
           </span>

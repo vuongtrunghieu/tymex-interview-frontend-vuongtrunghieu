@@ -12,6 +12,9 @@ const schema = z.object({
   sortByTime: z.string().optional(),
   sortByPriceOrder: z.enum(['asc', 'desc']).optional(),
   sortByTimeOrder: z.enum(['asc', 'desc']).optional(),
+  theme: z.string().optional(),
+  tier: z.string().optional(),
+  category: z.array(z.string()).optional(),
 });
 
 export const getProducts = actionClient
@@ -26,6 +29,9 @@ export const getProducts = actionClient
         sortByTime,
         sortByTimeOrder,
         sortByPriceOrder,
+        tier,
+        theme,
+        category,
       },
     }) => {
       try {
@@ -33,6 +39,17 @@ export const getProducts = actionClient
 
         if (search) {
           url.searchParams.append('q', search);
+        }
+        if (category?.length) {
+          for (const cat of category) {
+            url.searchParams.append('category', cat);
+          }
+        }
+        if (tier) {
+          url.searchParams.append('tier', tier);
+        }
+        if (theme) {
+          url.searchParams.append('theme', theme);
         }
         if (sortByTime || sortByPrice) {
           const sorts = [sortByPrice, sortByTime].filter(Boolean);

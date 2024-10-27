@@ -45,6 +45,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 
 #### Misc
 - [ ] Font Drone Ranger Pro is missing for Header nav links
+- [ ] Do we support multi select for Tier, Theme filter?
 
 ## Development
 

@@ -9,9 +9,12 @@ import { ScrollArea } from '@fpoon-tymex/ui/scroll-area';
 export const ItemsContainer = async () => {
   const query = searchParamsCache.all();
   const result = await getProducts({
-    search: query.q,
-    limit: query.limit,
-    page: query.page,
+    search: query.q || undefined,
+    limit: query.limit || 20,
+    page: query.page || 1,
+    tier: query.tier || undefined,
+    theme: query.theme || undefined,
+    category: query.category || [],
     sortByPrice: query.sortByPriceOrder ? 'price' : undefined,
     sortByPriceOrder: (query.sortByPriceOrder as 'asc' | 'desc') || undefined,
     sortByTime: query.sortByTimeOrder ? 'createdAt' : undefined,

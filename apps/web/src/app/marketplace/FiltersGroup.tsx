@@ -49,17 +49,17 @@ export const FiltersGroup = () => {
             Tier
           </Label>
           <Select
-            value={tier || 'all'}
+            value={tier || 'All'}
             onValueChange={(val) => setTier(val === 'All' ? null : val)}
           >
             <SelectTrigger id="price-sort">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              <SelectItem value="Dark">Basic</SelectItem>
-              <SelectItem value="Light">Premium</SelectItem>
-              <SelectItem value="Colorful">Deluxe</SelectItem>
+              <SelectItem value="All">All</SelectItem>
+              <SelectItem value="Basic">Basic</SelectItem>
+              <SelectItem value="Premium">Premium</SelectItem>
+              <SelectItem value="Deluxe">Deluxe</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -71,14 +71,14 @@ export const FiltersGroup = () => {
             Theme
           </Label>
           <Select
-            value={theme || 'all'}
+            value={theme || 'All'}
             onValueChange={(val) => setTheme(val === 'All' ? null : val)}
           >
             <SelectTrigger id="price-sort">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All</SelectItem>
+              <SelectItem value="All">All</SelectItem>
               <SelectItem value="Dark">Dark</SelectItem>
               <SelectItem value="Light">Light</SelectItem>
               <SelectItem value="Colorful">Colorful</SelectItem>
