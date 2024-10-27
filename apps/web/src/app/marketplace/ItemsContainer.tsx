@@ -1,12 +1,26 @@
 import { getProducts } from '@/actions/products/get-products-action';
 import { ItemCard, ItemCardLoading } from '@/app/marketplace/ItemCard';
+import { searchParamsCache } from '@/app/marketplace/search-params';
 // @ts-ignore
 import type { IProduct } from '@fpoon-tymex/api';
 import { ScrollArea } from '@fpoon-tymex/ui/scroll-area';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 export const ItemsContainer = async () => {
-  const result = await getProducts({});
+  const query = searchParamsCache.all();
+  const result = await getProducts({
+    search: query.q,
+    limit: query.limit,
+    page: query.page,
+    sortByPrice: query.sortByPriceOrder ? 'price' : undefined,
+    sortByPriceOrder: (query.sortByPriceOrder as 'asc' | 'desc') || undefined,
+    sortByTime: query.sortByTimeOrder ? 'createdAt' : undefined,
+    sortByTimeOrder: (query.sortByTimeOrder as 'asc' | 'desc') || undefined,
+  });
+
+  if (result?.validationErrors) {
+    console.error(result.validationErrors);
+  }
 
   if (!result || !result.data?.length) {
     return (

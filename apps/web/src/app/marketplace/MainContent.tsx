@@ -1,11 +1,11 @@
+import { Filters } from '@/app/marketplace/Filters';
 import {
   ItemsContainer,
   ItemsContainerLoading,
 } from '@/app/marketplace/ItemsContainer';
 import { Button } from '@fpoon-tymex/ui/button';
 import { Card } from '@fpoon-tymex/ui/card';
-import { Separator } from '@fpoon-tymex/ui/separator';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 const MainContent = async () => {
   return (
@@ -14,8 +14,7 @@ const MainContent = async () => {
         <div className="w-full lg:w-64 flex-shrink-0">
           <Card className="p-4">
             <div className="space-y-4">
-              <div className="font-medium">Filters</div>
-              <Separator />
+              <Filters />
             </div>
           </Card>
         </div>

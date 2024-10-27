@@ -4,7 +4,7 @@ import Page from './page';
 
 describe('Page', () => {
   it('should render Page', () => {
-    render(<Page />);
+    render(<Page searchParams={{}} />);
     expect(screen.getByTestId('page-header')).toBeDefined();
     expect(screen.getByTestId('hero-banner')).toBeDefined();
     expect(

@@ -3,6 +3,7 @@ import '@fpoon-tymex/ui/globals.css';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -37,7 +38,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <NuqsAdapter>{children}</NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>
