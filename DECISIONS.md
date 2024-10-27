@@ -41,7 +41,7 @@
       development time.
 - Follow-up Actions
     + [x] We haven't set up any test for this project yet.
-      - Updated 2024-10-27: added Vitest, Jest for component testing, and Playwright for E2E testing.
+        - Updated 2024-10-27: added Vitest, Jest for component testing, and Playwright for E2E testing.
     + [ ] Check if we need to lower the rule levels for linting/typechecking if something is annoying to fix; because
       due to
       time constraint, I don't aim to be perfect right at the start.
@@ -68,3 +68,20 @@
       component changes.
 - Follow-up Actions
     + [ ] Replace Shadcn with Ant Design
+
+#### Using search params in app's URL to manipulate and save filtering, sorting parameters
+
+- Date: 2024-10-27
+- Context: We need to implement sorting and filtering for items in our component-based Next.js project. It is crucial to
+  ensure that components interact effectively, particularly when fetching new data in response to sorting and filtering
+  changes.
+- Options Considered: URL search query params
+- Rationale
+    + During the design phase, we opted for URL search query parameters, believing that this would simplify the task and
+      minimize the need for additional state management.
+    + This approach enables us to enter a URL and achieve the desired application state without requiring external data retrieval.
+    + Many websites, particularly in the e-commerce sector, utilize this method, allowing users to easily share URLs.
+    + I have experience using a library called nuqs (https://github.com/47ng/nuqs), which allows for intuitive and
+      type-safe manipulation of URL search parameters, including compatibility with server components.
+- Impact
+- Follow-up Actions
