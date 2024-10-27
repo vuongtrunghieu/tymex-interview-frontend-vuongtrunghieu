@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 
 const MainContent = async () => {
   return (
-    <div className="container flex-grow py-8 relative">
+    <div className="container 2xl:max-w-[1440px] flex-grow py-8 relative">
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-64 flex-shrink-0">
           <div className="space-y-4">

@@ -32,14 +32,14 @@ export const ItemsContainer = async () => {
 
   return (
     <>
-      <ScrollArea className="h-[calc(100vh-2rem)] pr-4">
+      <ScrollArea className="h-[calc(100vh-16rem)] pr-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
           {result.data.map((item: IProduct, index: number) => (
             <ItemCard item={item} key={`${item?.id}_${index}`} />
           ))}
         </div>
       </ScrollArea>
-      <div className="pt-10 flex justify-center">
+      <div className="pt-10 flex justify-center" key={result.data.length}>
         <ViewMore currentLength={result.data.length} />
       </div>
     </>

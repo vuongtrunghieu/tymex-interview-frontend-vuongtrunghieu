@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@fpoon-tymex/ui/button';
+import { Icons } from '@fpoon-tymex/ui/icons';
 import { useQueryState } from 'nuqs';
 import { useState } from 'react';
 
@@ -8,7 +9,12 @@ export const ViewMore = ({ currentLength }: { currentLength: number }) => {
   const [limit, setLimit] = useQueryState('limit', {
     shallow: false,
   });
+  // Since we don't have pagination in API for total count, and direct control over data API,
+  // we'll need to rely on client side data.
+  // We can probably check the last data.length and the requesting data length to determine if there is more data.
+  // Other solution might be to add an API layer in our Next.js to calculate dataset size and return that to UI.
   const [showButton, setShowButton] = useState(true);
+  const [isFetching, setFetching] = useState(false);
 
   const handleClickViewMore = () => {
     // No more data to fetch, hide this button
@@ -16,11 +22,7 @@ export const ViewMore = ({ currentLength }: { currentLength: number }) => {
       setShowButton(false);
       return;
     }
-    // TODO handle loading data
-    // TODO handle when to disable this button, i.e. when there is no more data
-    // Since we don't have pagination in API for total count, we have to rely on client side data
-    // We can probably check the last data.length and the newer data length
-    // Other solution might be add an API layer in our Next.js to calculate dataset size and return that to UI
+    setFetching(true);
     setLimit((val) => `${Number(val) + 20}`);
   };
 
@@ -28,9 +30,16 @@ export const ViewMore = ({ currentLength }: { currentLength: number }) => {
     showButton && (
       <Button
         variant="accent"
-        className="min-w-[300px] p-8"
+        className="min-w-[16rem] p-6"
         onClick={handleClickViewMore}
+        disabled={isFetching}
       >
+        {isFetching && (
+          <Icons.LoaderCircle
+            className="outline-0 h-4 w-4 animate-spin"
+            tabIndex={0}
+          />
+        )}
         View More
       </Button>
     )
