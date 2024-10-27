@@ -1,5 +1,5 @@
 import { GlobeIcon } from '@radix-ui/react-icons';
-import { CircleCheck, Globe, Heart, Menu } from 'lucide-react';
+import { ChevronDown, CircleCheck, Globe, Heart, Menu } from 'lucide-react';
 
 export const Icons = {
   Globe,
@@ -7,4 +7,5 @@ export const Icons = {
   CircleCheck,
   Heart,
   Menu,
+  ChevronDown,
 };

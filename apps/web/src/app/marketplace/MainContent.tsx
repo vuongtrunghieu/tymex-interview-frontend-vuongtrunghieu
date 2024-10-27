@@ -1,10 +1,11 @@
-import { Filters } from '@/app/marketplace/Filters';
+import { FilterCategory } from '@/app/marketplace/FilterCategory';
+import { FiltersGroup } from '@/app/marketplace/FiltersGroup';
 import {
   ItemsContainer,
   ItemsContainerLoading,
 } from '@/app/marketplace/ItemsContainer';
+import { ViewMore } from '@/app/marketplace/ViewMore';
 import { Button } from '@fpoon-tymex/ui/button';
-import { Card } from '@fpoon-tymex/ui/card';
 import { Suspense } from 'react';
 
 const MainContent = async () => {
@@ -12,23 +13,14 @@ const MainContent = async () => {
     <div className="container flex-grow py-8 relative">
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-64 flex-shrink-0">
-          <Card className="p-4">
-            <div className="space-y-4">
-              <Filters />
-            </div>
-          </Card>
+          <div className="space-y-4">
+            <FiltersGroup />
+          </div>
         </div>
 
-        <div className="flex-1 ">
+        <div className="flex-1">
           <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-4">
-              <div className="flex gap-2">
-                <Button variant="accent" size="sm">
-                  All
-                </Button>
-                {/* TODO add other filters */}
-              </div>
-            </div>
+            <FilterCategory />
           </div>
 
           <Suspense fallback={<ItemsContainerLoading />}>
@@ -36,9 +28,7 @@ const MainContent = async () => {
           </Suspense>
 
           <div className="pt-10 flex justify-center">
-            <Button variant="accent" className="min-w-[300px] p-8">
-              View More
-            </Button>
+            <ViewMore />
           </div>
         </div>
       </div>

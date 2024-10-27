@@ -4,7 +4,6 @@ import { searchParamsCache } from '@/app/marketplace/search-params';
 // @ts-ignore
 import type { IProduct } from '@fpoon-tymex/api';
 import { ScrollArea } from '@fpoon-tymex/ui/scroll-area';
-import { Suspense } from 'react';
 
 export const ItemsContainer = async () => {
   const query = searchParamsCache.all();
@@ -33,11 +32,9 @@ export const ItemsContainer = async () => {
   return (
     <ScrollArea className="h-[calc(100vh-2rem)] pr-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
-        <Suspense>
-          {result?.data.map((item: IProduct, index: number) => (
-            <ItemCard item={item} key={`${item?.id}_${index}`} />
-          ))}
-        </Suspense>
+        {result.data.map((item: IProduct, index: number) => (
+          <ItemCard item={item} key={`${item?.id}_${index}`} />
+        ))}
       </div>
     </ScrollArea>
   );
