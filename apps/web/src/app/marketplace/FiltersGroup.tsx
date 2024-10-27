@@ -2,6 +2,7 @@
 
 import { searchParamParsers } from '@/app/marketplace/search-params';
 import { Button } from '@fpoon-tymex/ui/button';
+import { DualRangeSlider } from '@fpoon-tymex/ui/dual-range-slider';
 import { Label } from '@fpoon-tymex/ui/label';
 import {
   Select,
@@ -23,7 +24,13 @@ export const FiltersGroup = () => {
   const [sortByTimeOrder, setSortByTimeOrder] = useState(query.sortByTimeOrder);
   const [tier, setTier] = useState(query.tier);
   const [theme, setTheme] = useState(query.theme);
-  const [category, setCategory] = useState(query.category);
+  // Assumption from the design, we have max range = 200 ETH, and min range = 0.01 ETH
+  const MAX_PRICE_RANGE = 200;
+  const MIN_PRICE_RANGE = 0.01;
+  const [priceRange, setPriceRange] = useState([
+    query.priceRange?.[0] || MIN_PRICE_RANGE,
+    query.priceRange?.[1] || MAX_PRICE_RANGE,
+  ]);
 
   const handleFilter = () => {
     setQuery({
@@ -31,7 +38,7 @@ export const FiltersGroup = () => {
       sortByPriceOrder: sortByPriceOrder || null,
       sortByTimeOrder: sortByTimeOrder || null,
       tier: tier || null,
-      category: category || null,
+      priceRange: priceRange || null,
       q: query.q || null,
       limit: query.limit || null,
       page: query.page || null,
@@ -40,10 +47,35 @@ export const FiltersGroup = () => {
 
   return (
     <section className="space-y-6">
+      <div className="space-y-4 mb-10">
+        <Label
+          htmlFor="price-filter"
+          className="uppercase font-bold text-muted-foreground"
+        >
+          Price
+        </Label>
+        <DualRangeSlider
+          id="price-filter"
+          label={(value) => (
+            <div className="text-sm hidden group-hover:block">{value}</div>
+          )}
+          labelPosition="top"
+          value={priceRange}
+          onValueChange={setPriceRange}
+          min={MIN_PRICE_RANGE}
+          max={MAX_PRICE_RANGE}
+          step={0.01}
+          rangeClassName="bg-accent"
+          thumbClassName="bg-accent"
+          showMinMax
+          unit="ETH"
+          className="group"
+        />
+      </div>
       <div className="space-y-4">
         <div className="space-y-2">
           <Label
-            htmlFor="price-sort"
+            htmlFor="tier-filter"
             className="uppercase font-bold text-muted-foreground"
           >
             Tier
@@ -52,7 +84,7 @@ export const FiltersGroup = () => {
             value={tier || 'All'}
             onValueChange={(val) => setTier(val === 'All' ? null : val)}
           >
-            <SelectTrigger id="price-sort">
+            <SelectTrigger id="tier-filter">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
@@ -65,7 +97,7 @@ export const FiltersGroup = () => {
         </div>
         <div className="space-y-2">
           <Label
-            htmlFor="price-sort"
+            htmlFor="theme-filter"
             className="uppercase font-bold text-muted-foreground"
           >
             Theme
@@ -74,7 +106,7 @@ export const FiltersGroup = () => {
             value={theme || 'All'}
             onValueChange={(val) => setTheme(val === 'All' ? null : val)}
           >
-            <SelectTrigger id="price-sort">
+            <SelectTrigger id="theme-filter">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
@@ -88,7 +120,7 @@ export const FiltersGroup = () => {
         </div>
         <div className="space-y-2">
           <Label
-            htmlFor="price-sort"
+            htmlFor="time-sort"
             className="uppercase font-bold text-muted-foreground"
           >
             Time
@@ -99,7 +131,7 @@ export const FiltersGroup = () => {
               setSortByTimeOrder(val === 'none' ? null : val)
             }
           >
-            <SelectTrigger id="price-sort">
+            <SelectTrigger id="time-sort">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>

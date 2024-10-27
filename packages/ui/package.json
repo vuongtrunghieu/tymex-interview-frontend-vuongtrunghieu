@@ -11,6 +11,7 @@
     "./badge": "./src/components/badge.tsx",
     "./button": "./src/components/button.tsx",
     "./card": "./src/components/card.tsx",
+    "./dual-range-slider": "./src/components/dual-range-slider.tsx",
     "./input": "./src/components/input.tsx",
     "./label": "./src/components/label.tsx",
     "./scroll-area": "./src/components/scroll-area.tsx",

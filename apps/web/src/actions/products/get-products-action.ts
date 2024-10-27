@@ -15,6 +15,7 @@ const schema = z.object({
   theme: z.string().optional(),
   tier: z.string().optional(),
   category: z.array(z.string()).optional(),
+  priceRange: z.array(z.number()).length(2).optional(),
 });
 
 export const getProducts = actionClient
@@ -32,6 +33,7 @@ export const getProducts = actionClient
         tier,
         theme,
         category,
+        priceRange,
       },
     }) => {
       try {
@@ -43,6 +45,13 @@ export const getProducts = actionClient
         if (category?.length) {
           for (const cat of category) {
             url.searchParams.append('category', cat);
+          }
+        }
+        if (priceRange?.length) {
+          const [min, max] = priceRange;
+          if (min && max) {
+            url.searchParams.append('price_gte', min.toString());
+            url.searchParams.append('price_lte', max.toString());
           }
         }
         if (tier) {

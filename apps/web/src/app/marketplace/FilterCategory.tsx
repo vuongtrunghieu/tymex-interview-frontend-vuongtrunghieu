@@ -22,7 +22,7 @@ const CATEGORIES: IProduct['category'] = [
 export const FilterCategory = () => {
   const [category, setCategory] = useQueryState('category', { shallow: false });
   const categories = useMemo(
-    () => (category ? (category || '').split(',') : []),
+    () => (category?.length ? category.split(',') : []),
     [category],
   );
 

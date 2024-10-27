@@ -1,6 +1,7 @@
 import {
   createSearchParamsCache,
   parseAsArrayOf,
+  parseAsFloat,
   parseAsInteger,
   parseAsString,
 } from 'nuqs/server';
@@ -14,6 +15,7 @@ export const searchParamParsers = {
   tier: parseAsString,
   theme: parseAsString,
   category: parseAsArrayOf(parseAsString, ','),
+  priceRange: parseAsArrayOf(parseAsFloat, '-'),
 };
 
 export const searchParamsCache = createSearchParamsCache(searchParamParsers);
