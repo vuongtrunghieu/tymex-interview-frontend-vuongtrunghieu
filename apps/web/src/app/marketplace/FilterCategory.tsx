@@ -1,10 +1,14 @@
 'use client';
 
+import {
+  LIMIT_DEFAULT,
+  searchParamParsers,
+} from '@/app/marketplace/search-params';
 // @ts-ignore
 import type { IProduct } from '@fpoon-tymex/api';
 import { Button } from '@fpoon-tymex/ui/button';
 import { cn } from '@fpoon-tymex/ui/cn';
-import { useQueryState } from 'nuqs';
+import { useQueryStates } from 'nuqs';
 import { useMemo } from 'react';
 
 const CATEGORIES: IProduct['category'] = [
@@ -20,15 +24,20 @@ const CATEGORIES: IProduct['category'] = [
 ];
 
 export const FilterCategory = () => {
-  const [category, setCategory] = useQueryState('category', { shallow: false });
+  const [query, setQuery] = useQueryStates(searchParamParsers, {
+    shallow: false,
+  });
   const categories = useMemo(
-    () => (category?.length ? category.split(',') : []),
-    [category],
+    () => (query?.category?.length ? query.category : []),
+    [query.category],
   );
 
   const handleCategoryClick = (categoryName: string) => {
     if (categoryName === 'All') {
-      setCategory(null);
+      setQuery({
+        category: null,
+        limit: LIMIT_DEFAULT,
+      });
       return;
     }
 
@@ -46,10 +55,16 @@ export const FilterCategory = () => {
     ) {
       // None category selected or all categories selected
       // Defaulting to 'All'
-      setCategory(null);
+      setQuery({
+        category: null,
+        limit: LIMIT_DEFAULT,
+      });
     } else {
       // Update category
-      setCategory(newCategories.join(','));
+      setQuery({
+        category: newCategories,
+        limit: LIMIT_DEFAULT,
+      });
     }
   };
 

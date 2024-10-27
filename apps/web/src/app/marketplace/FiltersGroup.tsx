@@ -1,6 +1,12 @@
 'use client';
 
-import { searchParamParsers } from '@/app/marketplace/search-params';
+import {
+  LIMIT_DEFAULT,
+  MAX_PRICE_RANGE,
+  MIN_PRICE_RANGE,
+  PAGE_DEFAULT,
+  searchParamParsers,
+} from '@/app/marketplace/search-params';
 import { Button } from '@fpoon-tymex/ui/button';
 import { cn } from '@fpoon-tymex/ui/cn';
 import { DualRangeSlider } from '@fpoon-tymex/ui/dual-range-slider';
@@ -17,9 +23,6 @@ import {
 import { useQueryStates } from 'nuqs';
 import { type KeyboardEventHandler, useMemo, useState } from 'react';
 
-// Assumption from the design, we have max range = 200 ETH, and min range = 0.01 ETH
-const MAX_PRICE_RANGE = 200;
-const MIN_PRICE_RANGE = 0.01;
 const DEFAULTS = {
   q: '',
   priceRange: [MIN_PRICE_RANGE, MAX_PRICE_RANGE],
@@ -63,7 +66,7 @@ export const FiltersGroup = () => {
     setTheme(DEFAULTS.theme);
     setPriceRange(DEFAULTS.priceRange);
     setSearch('');
-    setQuery(DEFAULTS);
+    setQuery({ ...DEFAULTS, limit: LIMIT_DEFAULT, page: PAGE_DEFAULT });
   };
 
   const handleFilter = () => {
@@ -75,8 +78,8 @@ export const FiltersGroup = () => {
       tier: tier || null,
       priceRange: priceRange || null,
       q: search || null,
-      limit: query.limit || null,
-      page: query.page || null,
+      limit: LIMIT_DEFAULT,
+      page: PAGE_DEFAULT,
     });
   };
 
@@ -238,6 +241,7 @@ export const FiltersGroup = () => {
           variant="accent"
           className="min-w-[150px]"
           onClick={handleFilter}
+          disabled={!isDirty}
         >
           Search
         </Button>
