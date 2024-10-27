@@ -11,7 +11,9 @@
       "packages/tsconfig",
       ".trigger",
       ".react-email",
-      "coverage"
+      "coverage",
+      "playwright-report",
+      "test-results"
     ],
     "enabled": true,
     "rules": {

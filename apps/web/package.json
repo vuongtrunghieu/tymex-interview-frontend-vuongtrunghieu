@@ -10,6 +10,7 @@
     "lint": "biome lint",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit"
   },
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@fpoon-tymex/typescript-config": "workspace:*",
+    "@playwright/test": "^1.48.2",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.2",
