@@ -1,4 +1,4 @@
-import { GlobeIcon } from '@radix-ui/react-icons';
+import { GlobeIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import {
   ChevronDown,
   CircleCheck,
@@ -11,6 +11,7 @@ import {
 export const Icons = {
   Globe,
   RadixGlobeIcon: GlobeIcon,
+  SearchIcon: MagnifyingGlassIcon,
   CircleCheck,
   Heart,
   Menu,

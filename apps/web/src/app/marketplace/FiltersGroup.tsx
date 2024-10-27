@@ -3,6 +3,8 @@
 import { searchParamParsers } from '@/app/marketplace/search-params';
 import { Button } from '@fpoon-tymex/ui/button';
 import { DualRangeSlider } from '@fpoon-tymex/ui/dual-range-slider';
+import { Icons } from '@fpoon-tymex/ui/icons';
+import { Input } from '@fpoon-tymex/ui/input';
 import { Label } from '@fpoon-tymex/ui/label';
 import {
   Select,
@@ -12,7 +14,7 @@ import {
   SelectValue,
 } from '@fpoon-tymex/ui/select';
 import { useQueryStates } from 'nuqs';
-import { useState } from 'react';
+import { type KeyboardEventHandler, useState } from 'react';
 
 export const FiltersGroup = () => {
   const [query, setQuery] = useQueryStates(searchParamParsers, {
@@ -31,6 +33,7 @@ export const FiltersGroup = () => {
     query.priceRange?.[0] || MIN_PRICE_RANGE,
     query.priceRange?.[1] || MAX_PRICE_RANGE,
   ]);
+  const [search, setSearch] = useState(query.q);
 
   const handleFilter = () => {
     setQuery({
@@ -39,15 +42,34 @@ export const FiltersGroup = () => {
       sortByTimeOrder: sortByTimeOrder || null,
       tier: tier || null,
       priceRange: priceRange || null,
-      q: query.q || null,
+      q: search || null,
       limit: query.limit || null,
       page: query.page || null,
     });
   };
 
+  const handleSearch: KeyboardEventHandler<HTMLInputElement> = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      handleFilter();
+    }
+  };
+
   return (
     <section className="space-y-6">
-      <div className="space-y-4 mb-10">
+      <div>
+        <Input
+          id="search-filter"
+          value={search || ''}
+          type="text"
+          placeholder="Quick search"
+          onChange={(e) => setSearch(e.target.value)}
+          icon={Icons.SearchIcon}
+          iconProps={{ behavior: 'prepend', className: 'h-4 w-4 mr-1' }}
+          onKeyDown={handleSearch}
+        />
+      </div>
+      <div className="space-y-4 mb-12">
         <Label
           htmlFor="price-filter"
           className="uppercase font-bold text-muted-foreground"
