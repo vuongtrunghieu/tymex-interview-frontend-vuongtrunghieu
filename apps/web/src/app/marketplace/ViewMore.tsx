@@ -1,5 +1,6 @@
 'use client';
 
+import { LIMIT_DEFAULT } from '@/app/marketplace/search-params';
 import { Button } from '@fpoon-tymex/ui/button';
 import { Icons } from '@fpoon-tymex/ui/icons';
 import { useQueryState } from 'nuqs';
@@ -23,7 +24,9 @@ export const ViewMore = ({ currentLength }: { currentLength: number }) => {
       return;
     }
     setFetching(true);
-    setLimit((val) => `${Number(val) + 20}`);
+    setLimit((val) =>
+      val ? `${Number(val) + LIMIT_DEFAULT}` : `${LIMIT_DEFAULT * 2}`,
+    );
   };
 
   return (

@@ -6,9 +6,12 @@ import {
   parseAsString,
 } from 'nuqs/server';
 
+// 20 records per page
+export const LIMIT_DEFAULT = 20;
+
 export const searchParamParsers = {
   q: parseAsString.withDefault(''),
-  limit: parseAsInteger.withDefault(20),
+  limit: parseAsInteger.withDefault(LIMIT_DEFAULT),
   page: parseAsInteger.withDefault(1),
   sortByPriceOrder: parseAsString,
   sortByTimeOrder: parseAsString,

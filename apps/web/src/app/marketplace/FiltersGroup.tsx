@@ -48,7 +48,8 @@ export const FiltersGroup = () => {
   const isDirty = useMemo(
     () =>
       DEFAULTS.q !== search ||
-      DEFAULTS.priceRange !== priceRange ||
+      DEFAULTS.priceRange[0] !== priceRange[0] ||
+      DEFAULTS.priceRange[1] !== priceRange[1] ||
       DEFAULTS.theme !== theme ||
       DEFAULTS.tier !== tier ||
       DEFAULTS.sortByPriceOrder !== sortByPriceOrder ||

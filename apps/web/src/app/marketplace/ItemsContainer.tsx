@@ -1,7 +1,10 @@
 import { getProducts } from '@/actions/products/get-products-action';
 import { ItemCard, ItemCardLoading } from '@/app/marketplace/ItemCard';
 import { ViewMore } from '@/app/marketplace/ViewMore';
-import { searchParamsCache } from '@/app/marketplace/search-params';
+import {
+  LIMIT_DEFAULT,
+  searchParamsCache,
+} from '@/app/marketplace/search-params';
 // @ts-ignore
 import type { IProduct } from '@fpoon-tymex/api';
 import { ScrollArea } from '@fpoon-tymex/ui/scroll-area';
@@ -10,7 +13,7 @@ export const ItemsContainer = async () => {
   const query = searchParamsCache.all();
   const result = await getProducts({
     search: query.q || undefined,
-    limit: query.limit || 20,
+    limit: query.limit || LIMIT_DEFAULT,
     page: query.page || 1,
     tier: query.tier || undefined,
     theme: query.theme || undefined,

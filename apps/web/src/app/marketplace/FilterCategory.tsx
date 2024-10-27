@@ -59,7 +59,7 @@ export const FilterCategory = () => {
         variant="accent"
         size="sm"
         onClick={() => handleCategoryClick('All')}
-        className={cn(categories.length ? 'bg-fuchsia-900' : '')}
+        className={cn(categories.length ? 'bg-fuchsia-900 brightness-75' : '')}
       >
         All
       </Button>
@@ -70,7 +70,9 @@ export const FilterCategory = () => {
           size="sm"
           onClick={() => handleCategoryClick(categoryName)}
           className={cn(
-            categories.includes(categoryName) ? '' : 'bg-fuchsia-900',
+            categories.includes(categoryName)
+              ? ''
+              : 'bg-fuchsia-900 brightness-75',
           )}
         >
           {categoryName}
