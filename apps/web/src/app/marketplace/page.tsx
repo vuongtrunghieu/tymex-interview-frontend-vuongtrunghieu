@@ -17,7 +17,7 @@ const Marketplace = async ({
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
       <Header />
       <HeroBanner />
-      <main className="relative">
+      <main className="relative pt-8">
         <Image
           src={mainBackground}
           alt="main-background"

@@ -2,6 +2,7 @@
 
 import { searchParamParsers } from '@/app/marketplace/search-params';
 import { Button } from '@fpoon-tymex/ui/button';
+import { cn } from '@fpoon-tymex/ui/cn';
 import { DualRangeSlider } from '@fpoon-tymex/ui/dual-range-slider';
 import { Icons } from '@fpoon-tymex/ui/icons';
 import { Input } from '@fpoon-tymex/ui/input';
@@ -14,7 +15,19 @@ import {
   SelectValue,
 } from '@fpoon-tymex/ui/select';
 import { useQueryStates } from 'nuqs';
-import { type KeyboardEventHandler, useState } from 'react';
+import { type KeyboardEventHandler, useMemo, useState } from 'react';
+
+// Assumption from the design, we have max range = 200 ETH, and min range = 0.01 ETH
+const MAX_PRICE_RANGE = 200;
+const MIN_PRICE_RANGE = 0.01;
+const DEFAULTS = {
+  q: '',
+  priceRange: [MIN_PRICE_RANGE, MAX_PRICE_RANGE],
+  theme: null,
+  tier: null,
+  sortByPriceOrder: null,
+  sortByTimeOrder: null,
+};
 
 export const FiltersGroup = () => {
   const [query, setQuery] = useQueryStates(searchParamParsers, {
@@ -26,16 +39,34 @@ export const FiltersGroup = () => {
   const [sortByTimeOrder, setSortByTimeOrder] = useState(query.sortByTimeOrder);
   const [tier, setTier] = useState(query.tier);
   const [theme, setTheme] = useState(query.theme);
-  // Assumption from the design, we have max range = 200 ETH, and min range = 0.01 ETH
-  const MAX_PRICE_RANGE = 200;
-  const MIN_PRICE_RANGE = 0.01;
   const [priceRange, setPriceRange] = useState([
     query.priceRange?.[0] || MIN_PRICE_RANGE,
     query.priceRange?.[1] || MAX_PRICE_RANGE,
   ]);
-  const [search, setSearch] = useState(query.q);
+  const [search, setSearch] = useState(query.q || '');
+
+  const isDirty = useMemo(
+    () =>
+      DEFAULTS.q !== search ||
+      DEFAULTS.priceRange !== priceRange ||
+      DEFAULTS.theme !== theme ||
+      DEFAULTS.tier !== tier ||
+      DEFAULTS.sortByPriceOrder !== sortByPriceOrder ||
+      DEFAULTS.sortByTimeOrder !== sortByTimeOrder,
+    [tier, sortByPriceOrder, sortByTimeOrder, theme, search, priceRange],
+  );
+  const handleResetFilters = () => {
+    setSortByPriceOrder(DEFAULTS.sortByPriceOrder);
+    setSortByTimeOrder(DEFAULTS.sortByTimeOrder);
+    setTier(DEFAULTS.tier);
+    setTheme(DEFAULTS.theme);
+    setPriceRange(DEFAULTS.priceRange);
+    setSearch('');
+    setQuery(DEFAULTS);
+  };
 
   const handleFilter = () => {
+    // Commit update to URL search params, and trigger refetch of data API
     setQuery({
       theme: theme || null,
       sortByPriceOrder: sortByPriceOrder || null,
@@ -60,7 +91,7 @@ export const FiltersGroup = () => {
       <div>
         <Input
           id="search-filter"
-          value={search || ''}
+          value={search}
           type="text"
           placeholder="Quick search"
           onChange={(e) => setSearch(e.target.value)}
@@ -69,7 +100,7 @@ export const FiltersGroup = () => {
           onKeyDown={handleSearch}
         />
       </div>
-      <div className="space-y-4 mb-12">
+      <div className="space-y-4 pb-8">
         <Label
           htmlFor="price-filter"
           className="uppercase font-bold text-muted-foreground"
@@ -187,8 +218,21 @@ export const FiltersGroup = () => {
           </Select>
         </div>
       </div>
-      <div className="flex items-center justify-end">
-        {/* TODO reset filters whenever it's not the defaults*/}
+      <div
+        className={cn(
+          'flex items-center',
+          isDirty ? 'justify-between' : 'justify-end',
+        )}
+      >
+        {isDirty && (
+          <Button variant="ghost" onClick={handleResetFilters}>
+            <Icons.CircleX
+              className="h-4 w-4 outline-0 fill-yellow-500 text-background"
+              tabIndex={0}
+            />
+            Reset filters
+          </Button>
+        )}
         <Button
           variant="accent"
           className="min-w-[150px]"
