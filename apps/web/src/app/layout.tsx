@@ -1,6 +1,7 @@
 import { cn } from '@fpoon-tymex/ui/cn';
 import '@fpoon-tymex/ui/globals.css';
 import type { Metadata } from 'next';
+import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -29,7 +30,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn('antialiased', inter.className)}>{children}</body>
+      <body className={cn('antialiased', inter.className)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

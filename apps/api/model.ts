@@ -1,4 +1,4 @@
-interface IProduct {
+export interface IProduct {
     id: number;
     title: string;
     category: "Upper Body" | "Lower Body" | "Hat" | "Shoes" | "Accessory" | "Legendary" | "Mythic" | "Epic" | "Rare";
@@ -11,11 +11,11 @@ interface IProduct {
     author: IAuthor;
   }
   
-  interface IAuthor {
+  export interface IAuthor {
     firstName: string;
     lastName: string;
     email: string;
     gender: string;
     avatar: string;
-    onlineStatus: string;
+    onlineStatus: string;   // idle | online | offline
   }

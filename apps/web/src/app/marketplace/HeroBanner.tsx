@@ -19,7 +19,7 @@ const HeroBanner = () => {
           src={content}
           alt="banner-content"
           className="object-cover"
-          sizes="(max-width: 480px) 100vw, (max-width: 768px) 75vw, (max-width: 1200px) 50vw, (max-width: 1600px) 40vw, 30vw"
+          sizes="(max-width: 480px) 100vw, (max-width: 768px) 900px, (max-width: 1200px) 1080px, 1440px"
           width={3840}
           height={1310}
         />

@@ -80,11 +80,7 @@ const Footer = () => {
             </ul>
           </nav>
           <div className="flex items-center gap-6">
-            <Button
-              variant="default"
-              className="bg-pink-500 hover:bg-pink-600 text-white"
-              data-testid="connect-wallet-button"
-            >
+            <Button variant="accent" data-testid="connect-wallet-button">
               Connect Wallet
             </Button>
             <Select

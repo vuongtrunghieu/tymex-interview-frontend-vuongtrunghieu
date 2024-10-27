@@ -17,11 +17,13 @@
   "dependencies": {
     "@fpoon-tymex/ui": "workspace:*",
     "next": "^14.1.1",
+    "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@fpoon-tymex/api": "workspace:*",
     "@fpoon-tymex/typescript-config": "workspace:*",
     "@playwright/test": "^1.48.2",
     "@t3-oss/env-nextjs": "^0.11.1",
