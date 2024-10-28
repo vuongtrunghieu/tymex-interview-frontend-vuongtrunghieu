@@ -11,7 +11,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 ### Implementation checklist
 
 #### Functional capabilities
-- [ ] UI looks and feels
+- [x] UI looks and feels
 - [x] API integration
 - [x] Data refresh interval
 - [x] Pagination (or lazy-loading) of data

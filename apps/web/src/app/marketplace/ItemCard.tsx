@@ -50,7 +50,9 @@ const getOnlineStatusColor = (status: IAuthor['onlineStatus']) => {
   }
 };
 
-/* imageId mapping to image, imageId in range [1,20] */
+/* imageId mapping to image, imageId in range [1,20]
+ *  Because we have 5 image assets, we'll assign an image in cycle from 1 to 5
+ * */
 const getImage = (imageId: IProduct['imageId']) => {
   switch (imageId % 5) {
     case 1:

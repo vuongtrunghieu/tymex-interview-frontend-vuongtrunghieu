@@ -61,13 +61,13 @@ const Footer = () => {
       <div className="backdrop-blur-0 bg-black/60 border-b border-gray-800 py-2 lg:py-4">
         <div className="hidden container mx-auto lg:flex justify-between items-center">
           <nav>
-            <ul className="flex space-x-8">
+            <ul className="flex space-x-12">
               {navItems.map((item, index) => (
                 <li key={`${item.href}_${index}`}>
                   <Link
                     href={item.href}
                     className={cn(
-                      'hover:text-pink-500}',
+                      'hover:text-pink-500 font-semibold uppercase tracking-tight text-sm',
                       item.hardcoded
                         ? 'text-pink-500 underline underline-offset-4'
                         : 'text-white',

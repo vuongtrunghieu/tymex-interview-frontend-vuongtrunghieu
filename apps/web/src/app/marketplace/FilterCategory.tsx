@@ -80,7 +80,7 @@ export const FilterCategory = () => {
       </Button>
       {CATEGORIES.map((categoryName: string, index: number) => (
         <Button
-          variant="accent"
+          variant="outline"
           key={`${categoryName}_${index + 1}`}
           size="sm"
           onClick={() => handleCategoryClick(categoryName)}

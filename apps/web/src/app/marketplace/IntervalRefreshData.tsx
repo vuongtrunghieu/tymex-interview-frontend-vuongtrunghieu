@@ -17,7 +17,8 @@ export const IntervalRefreshData = ({
     const intervalId = setInterval(() => {
       toast({
         title: 'Refreshing data',
-        description: 'Systems is refreshing data in the background',
+        description:
+          'The systems team has initiated a data refresh process in the background.',
       });
       setRefresh(`${Date.now()}`);
     }, interval);

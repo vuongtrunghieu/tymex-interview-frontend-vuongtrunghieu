@@ -122,8 +122,8 @@ export const FiltersGroup = () => {
           min={MIN_PRICE_RANGE}
           max={MAX_PRICE_RANGE}
           step={0.01}
-          rangeClassName="bg-accent"
-          thumbClassName="bg-accent"
+          rangeClassName="bg-gradient-to-r from-pink-600 to-fuchsia-600"
+          thumbClassName="bg-gradient-to-r from-pink-600 to-fuchsia-600"
           showMinMax
           unit="ETH"
           className="group"

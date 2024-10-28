@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="container space-y-8">
         <div className="grid grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4 ">NAVIGATION</h3>
+            <h3 className="text-base font-semibold mb-4 ">NAVIGATION</h3>
             <div className="grid grid-cols-3 gap-6">
               <div className="space-y-3 text-sm">
                 <Link href="/marketplace" className="block">
@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold mb-4">CONTACT US</h3>
+            <h3 className="text-base font-semibold mb-4">CONTACT US</h3>
             <p className="flex items-center gap-4">
               <Icons.Phone
                 className="h-4 w-4 outline-0 inline-block rounded-full bg-foreground stroke-background fill-background p-0.5"
@@ -68,14 +68,14 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">
+            <h3 className="text-base font-semibold mb-4">
               SUBSCRIBE TO RECEIVE OUR LATEST UPDATE
             </h3>
             <div className="flex w-full max-w-sm items-center space-x-4">
               <Input
                 type="email"
                 placeholder="Your email address"
-                className="w-[300px] border-foreground"
+                className="w-[300px] border-foreground placeholder:text-xs"
               />
               <Button type="submit" variant="accent" className="min-w-[150px]">
                 Subscribe
