@@ -1,5 +1,6 @@
 import { cn } from '@fpoon-tymex/ui/cn';
 import '@fpoon-tymex/ui/globals.css';
+import { Toaster } from '@fpoon-tymex/ui/toaster';
 import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
@@ -39,6 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NuqsAdapter>{children}</NuqsAdapter>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

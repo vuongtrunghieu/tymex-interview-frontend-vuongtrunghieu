@@ -5,9 +5,12 @@ import {
   ItemsContainer,
   ItemsContainerLoading,
 } from '@/app/marketplace/ItemsContainer';
+import { env } from '@/env.mjs';
 import { Suspense } from 'react';
 
 const MainContent = async () => {
+  const refreshIntervalInMilliseconds = (env.API_REFRESH_INTERVAL || 60) * 1000;
+
   return (
     <div className="container 2xl:max-w-[1440px] flex-grow py-8 relative">
       <div className="flex flex-col lg:flex-row gap-6">
@@ -20,7 +23,7 @@ const MainContent = async () => {
             <FilterCategory />
           </div>
 
-          <IntervalRefreshData />
+          <IntervalRefreshData interval={refreshIntervalInMilliseconds} />
           <Suspense fallback={<ItemsContainerLoading />}>
             <ItemsContainer />
           </Suspense>
