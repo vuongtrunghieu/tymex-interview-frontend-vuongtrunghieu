@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from '@fpoon-tymex/ui/select';
 import { useQueryStates } from 'nuqs';
-import { type KeyboardEventHandler, useMemo, useState } from 'react';
+import React, { type KeyboardEventHandler, useMemo, useState } from 'react';
 
 const DEFAULTS = {
   q: '',
@@ -93,6 +93,9 @@ export const FiltersGroup = () => {
   return (
     <section className="space-y-6">
       <div>
+        <Label htmlFor="search-filter" className="sr-only">
+          Search
+        </Label>
         <Input
           id="search-filter"
           value={search}

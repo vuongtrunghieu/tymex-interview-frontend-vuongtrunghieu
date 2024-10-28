@@ -92,6 +92,7 @@ const Footer = () => {
                 data-testid="language-selector"
               >
                 <Icons.RadixGlobeIcon className="w-6 h-6" />
+                <SelectValue placeholder="Language" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>

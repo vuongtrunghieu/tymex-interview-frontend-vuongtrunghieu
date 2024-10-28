@@ -1,6 +1,7 @@
 import { Button } from '@fpoon-tymex/ui/button';
 import { Icons } from '@fpoon-tymex/ui/icons';
 import { Input } from '@fpoon-tymex/ui/input';
+import { Label } from '@fpoon-tymex/ui/label';
 import { Separator } from '@fpoon-tymex/ui/separator';
 import Link from 'next/link';
 import React from 'react';
@@ -72,7 +73,11 @@ const Footer = () => {
               SUBSCRIBE TO RECEIVE OUR LATEST UPDATE
             </h3>
             <div className="flex w-full max-w-sm items-center space-x-4">
+              <Label htmlFor="subscribe-form" className="sr-only">
+                Subscribe
+              </Label>
               <Input
+                id="subscribe-form"
                 type="email"
                 placeholder="Your email address"
                 className="w-[300px] border-foreground placeholder:text-xs"

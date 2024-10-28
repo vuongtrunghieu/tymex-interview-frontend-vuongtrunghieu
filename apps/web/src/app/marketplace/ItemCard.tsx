@@ -105,9 +105,9 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <h3 className="text-lg font-semibold line-clamp-2">
+                  <h4 className="text-lg font-semibold line-clamp-2">
                     {item?.title}
-                  </h3>
+                  </h4>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>
@@ -132,7 +132,10 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
             <TooltipTrigger>
               <div className="flex items-center space-x-2">
                 <Avatar className="w-8 h-8 rounded-full backdrop-blur-md relative ring-1 ring-background/50">
-                  <AvatarImage src={item?.author?.avatar} />
+                  <AvatarImage
+                    src={item?.author?.avatar}
+                    alt={item?.author?.email}
+                  />
                   <AvatarFallback>
                     {item?.author?.firstName?.[0]}
                   </AvatarFallback>
