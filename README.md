@@ -24,7 +24,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
     + [x] Responsive design (desktop, tablet, mobile)
     + [ ] Using Ant Design
     + [x] Accessibility A11y checks
-    + [ ] Enhance UX with animations
+    + [x] Enhance UX with animations
 - Performance
     + [x] Search & filter debounce
     + [x] Image loading optimization (lazy-loading, caching)
