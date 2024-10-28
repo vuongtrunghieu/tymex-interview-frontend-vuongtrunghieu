@@ -47,7 +47,10 @@ export const ItemsContainer = async () => {
         data-testid="items-container-scroll"
       >
         <ItemsContainerScrollToTop params={query} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8"
+          data-testid="items-container"
+        >
           {result.data.map((item: IProduct, index: number) => (
             <ItemCard item={item} key={`${item?.id}_${index}`} />
           ))}

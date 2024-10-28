@@ -24,6 +24,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
     + [x] Responsive design (desktop, tablet, mobile)
     + [ ] Using Ant Design
     + [x] Accessibility A11y checks
+    + [ ] Enhance UX with animations
 - Performance
     + [x] Search & filter debounce
     + [x] Image loading optimization (lazy-loading, caching)
@@ -33,7 +34,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 - [x] Project scaffolding
 - [x] Unit testing
 - [x] Integration testing
-- [ ] E2E testing
+- [x] E2E testing
 - [ ] Update development documentation
 - [ ] Clear all remaining TODOs
 

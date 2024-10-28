@@ -17,7 +17,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@fpoon-tymex/ui/sheet';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-const Footer = () => {
+const Header = () => {
   const [language, setLanguage] = useState('en');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -168,4 +168,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Header;

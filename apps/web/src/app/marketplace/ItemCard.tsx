@@ -72,7 +72,7 @@ const getImage = (imageId: IProduct['imageId']) => {
 
 export const ItemCard = ({ item }: { item: IProduct }) => {
   return (
-    <Card className="bg-gray-800">
+    <Card className="bg-gray-800" data-testid="item-card">
       <CardHeader className="p-4">
         <AspectRatio
           ratio={1}
@@ -148,7 +148,7 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
                     )}
                   />
                 </Avatar>
-                <span className="text-sm text-gray-400">{`${item?.author?.firstName} ${item?.author?.lastName}`}</span>
+                <span className="text-xs text-gray-400">{`${item?.author?.firstName} ${item?.author?.lastName}`}</span>
               </div>
             </TooltipTrigger>
             <TooltipContent>
