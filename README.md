@@ -21,9 +21,9 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 #### Non-functional requirements
 
 - UI/UX
-    + [ ] Responsive design (desktop, tablet, mobile)
+    + [x] Responsive design (desktop, tablet, mobile)
     + [ ] Using Ant Design
-    + [ ] Accessibility A11y checks
+    + [x] Accessibility A11y checks
 - Performance
     + [ ] Search & filter debounce
     + [ ] Image loading optimization (lazy-loading, caching)

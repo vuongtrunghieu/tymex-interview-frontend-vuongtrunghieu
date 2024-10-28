@@ -50,7 +50,7 @@ export const ItemsContainer = async () => {
           ))}
         </div>
       </ScrollArea>
-      <div className="pt-10 flex justify-center" key={result.data.length}>
+      <div className="pt-16 flex justify-center" key={result.data.length}>
         <ViewMore currentLength={result.data.length} />
       </div>
     </>

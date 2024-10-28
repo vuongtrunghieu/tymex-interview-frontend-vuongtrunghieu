@@ -69,12 +69,16 @@ export const FilterCategory = () => {
   };
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex flex-wrap items-center gap-4">
       <Button
-        variant="accent"
+        variant="outline"
         size="sm"
         onClick={() => handleCategoryClick('All')}
-        className={cn(categories.length ? 'bg-fuchsia-900 brightness-75' : '')}
+        className={cn(
+          categories.length
+            ? 'bg-fuchsia-900 brightness-75'
+            : 'bg-gradient-to-r from-pink-600 to-fuchsia-600 text-accent-foreground shadow-sm hover:bg-accent/80',
+        )}
       >
         All
       </Button>
@@ -86,7 +90,7 @@ export const FilterCategory = () => {
           onClick={() => handleCategoryClick(categoryName)}
           className={cn(
             categories.includes(categoryName)
-              ? ''
+              ? 'bg-gradient-to-r from-pink-600 to-fuchsia-600 text-accent-foreground shadow-sm hover:bg-accent/80'
               : 'bg-fuchsia-900 brightness-75',
           )}
         >

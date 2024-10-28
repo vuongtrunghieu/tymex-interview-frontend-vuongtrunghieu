@@ -3,8 +3,10 @@ import {
   ChevronDown,
   CircleCheck,
   CircleX,
+  Filter,
   Globe,
   Heart,
+  ListFilter,
   LoaderCircle,
   Menu,
   MessageSquareText,
@@ -23,4 +25,6 @@ export const Icons = {
   ChevronDown,
   Phone,
   MessageSquareText,
+  Filter,
+  ListFilter,
 };
