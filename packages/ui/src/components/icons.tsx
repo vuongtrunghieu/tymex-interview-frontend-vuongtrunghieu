@@ -7,6 +7,8 @@ import {
   Heart,
   LoaderCircle,
   Menu,
+  MessageSquareText,
+  Phone,
 } from 'lucide-react';
 
 export const Icons = {
@@ -19,4 +21,6 @@ export const Icons = {
   Menu,
   LoaderCircle,
   ChevronDown,
+  Phone,
+  MessageSquareText,
 };
