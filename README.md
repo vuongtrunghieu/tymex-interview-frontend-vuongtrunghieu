@@ -32,7 +32,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 
 - [x] Project scaffolding
 - [ ] Unit testing
-- [ ] Integration testing
+- [x] Integration testing
 - [ ] E2E testing
 - [ ] Update development documentation
 - [ ] Clear all remaining TODOs

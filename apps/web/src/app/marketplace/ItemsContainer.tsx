@@ -42,7 +42,10 @@ export const ItemsContainer = async () => {
 
   return (
     <>
-      <ScrollArea className="h-[calc(100vh-16rem)] pr-4">
+      <ScrollArea
+        className="h-[calc(100vh-16rem)] pr-4"
+        data-testid="items-container-scroll"
+      >
         <ItemsContainerScrollToTop params={query} />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
           {result.data.map((item: IProduct, index: number) => (

@@ -69,7 +69,10 @@ export const FilterCategory = () => {
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-4">
+    <div
+      className="flex flex-wrap items-center gap-4"
+      data-testid="filter-category"
+    >
       <Button
         variant="outline"
         size="sm"

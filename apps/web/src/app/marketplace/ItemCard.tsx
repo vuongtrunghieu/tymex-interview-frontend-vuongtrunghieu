@@ -96,6 +96,8 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
             src={getImage(item?.imageId)}
             alt={item?.title}
             className="object-cover"
+            width={300}
+            height={300}
           />
         </AspectRatio>
       </CardHeader>

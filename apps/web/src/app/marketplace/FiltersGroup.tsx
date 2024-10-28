@@ -98,6 +98,7 @@ export const FiltersGroup = () => {
         </Label>
         <Input
           id="search-filter"
+          data-testid="search-filter"
           value={search}
           type="text"
           placeholder="Quick search"
@@ -116,6 +117,7 @@ export const FiltersGroup = () => {
         </Label>
         <DualRangeSlider
           id="price-filter"
+          data-testid="price-filter"
           label={(value) => (
             <div className="text-sm hidden group-hover:block">{value}</div>
           )}
@@ -144,7 +146,7 @@ export const FiltersGroup = () => {
             value={tier || 'All'}
             onValueChange={(val) => setTier(val === 'All' ? null : val)}
           >
-            <SelectTrigger id="tier-filter">
+            <SelectTrigger id="tier-filter" data-testid="tier-filter">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
@@ -166,7 +168,7 @@ export const FiltersGroup = () => {
             value={theme || 'All'}
             onValueChange={(val) => setTheme(val === 'All' ? null : val)}
           >
-            <SelectTrigger id="theme-filter">
+            <SelectTrigger id="theme-filter" data-testid="theme-filter">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
@@ -191,7 +193,7 @@ export const FiltersGroup = () => {
               setSortByTimeOrder(val === 'none' ? null : val)
             }
           >
-            <SelectTrigger id="time-sort">
+            <SelectTrigger id="time-sort" data-testid="time-sort">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>
@@ -214,7 +216,7 @@ export const FiltersGroup = () => {
               setSortByPriceOrder(val === 'none' ? null : val)
             }
           >
-            <SelectTrigger id="price-sort">
+            <SelectTrigger id="price-sort" data-testid="price-sort">
               <SelectValue placeholder="Price" />
             </SelectTrigger>
             <SelectContent>

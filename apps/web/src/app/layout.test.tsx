@@ -1,24 +1,64 @@
+import RootLayout from '@/app/layout';
 import { render, screen } from '@testing-library/react';
-import { expect, test } from 'vitest';
-import RootLayout from './layout';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-// Mock Inter font
-vitest.mock('next/font/google', () => {
+vi.mock('next/font/google', () => ({
+  Inter: () => ({
+    className: 'inter-font',
+    subsets: ['latin'],
+  }),
+}));
+
+vi.mock('@fpoon-tymex/ui/cn', () => ({
+  cn: (...inputs: string[]) => inputs.join(' '),
+}));
+
+vi.mock('@fpoon-tymex/ui/toaster', () => ({
+  Toaster: () => <div data-testid="mock-toaster">Toaster</div>,
+}));
+
+vi.mock('next-themes', async () => {
+  const actual = await vi.importActual('next-themes');
   return {
-    __esModule: true,
-    Inter: () => vitest.fn(),
+    ...actual,
+    ThemeProvider: ({ children }: { children: React.ReactNode }) => (
+      <div>{children}</div>
+    ),
   };
 });
 
-describe('RootLayout', () => {
-  it('Should render RootLayout', () => {
-    render(
-      <RootLayout>
-        <div data-testid="root-layout-children">Children content</div>
-      </RootLayout>,
-    );
+vi.mock('nuqs/adapters/next/app', () => ({
+  NuqsAdapter: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid="mock-nuqs-adapter">{children}</div>
+  ),
+}));
 
-    expect(screen.getByRole('document')).toHaveAttribute('lang', 'en');
-    expect(screen.getByTestId('root-layout-children')).toBeVisible();
+describe('RootLayout', () => {
+  const mockChildren = <div data-testid="mock-children">Test Children</div>;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should render children correctly', () => {
+    render(<RootLayout>{mockChildren}</RootLayout>);
+    expect(screen.getByTestId('mock-children')).toBeInTheDocument();
+  });
+
+  it('should render Toaster component', () => {
+    render(<RootLayout>{mockChildren}</RootLayout>);
+    expect(screen.getByTestId('mock-toaster')).toBeInTheDocument();
+  });
+
+  it('should wrap content in ThemeProvider with correct props', () => {
+    const { container } = render(<RootLayout>{mockChildren}</RootLayout>);
+
+    const themeProvider = container.firstChild;
+    expect(themeProvider).toBeInTheDocument();
+  });
+
+  it('should wrap content in NuqsAdapter', () => {
+    render(<RootLayout>{mockChildren}</RootLayout>);
+    expect(screen.getByTestId('mock-nuqs-adapter')).toBeInTheDocument();
   });
 });

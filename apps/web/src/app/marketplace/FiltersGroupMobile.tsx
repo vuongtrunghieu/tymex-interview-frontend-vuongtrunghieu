@@ -5,17 +5,17 @@ import { FiltersGroup } from '@/app/marketplace/FiltersGroup';
 import { Button } from '@fpoon-tymex/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@fpoon-tymex/ui/drawer';
 import { Icons } from '@fpoon-tymex/ui/icons';
-import React from 'react';
+import { useState } from 'react';
 
 export const FiltersGroupMobile = () => {
+  const [isOpen, setOpen] = useState(false);
+
   return (
-    <Drawer>
-      <DrawerTrigger>
-        <Button variant="outline">
-          <Icons.ListFilter className="h-4 w-4 outline-0" tabIndex={0} />
-          Sorts & Filters
-        </Button>
-      </DrawerTrigger>
+    <Drawer open={isOpen} onOpenChange={setOpen}>
+      <Button variant="outline" onClick={() => setOpen(true)}>
+        <Icons.ListFilter className="h-4 w-4 outline-0" tabIndex={0} />
+        Sorts & Filters
+      </Button>
       <DrawerContent>
         <div className="container py-8 space-y-4">
           <FiltersGroup />

@@ -8,9 +8,7 @@ import type { SearchParams } from 'nuqs/server';
 import React from 'react';
 import mainBackground from '../../../public/main-bg.webp';
 
-const Marketplace = async ({
-  searchParams,
-}: { searchParams: SearchParams }) => {
+const Marketplace = ({ searchParams }: { searchParams: SearchParams }) => {
   searchParamsCache.parse(searchParams);
 
   return (
