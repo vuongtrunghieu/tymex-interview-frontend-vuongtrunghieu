@@ -79,7 +79,7 @@ export const ItemCard = ({ item }: { item: IProduct }) => {
             'rounded-md aspect-square relative pt-10 overflow-hidden',
           )}
         >
-          <div className="absolute top-2 left-2 rounded-md text-xs font-semibold backdrop-blur-sm bg-black/50 px-4 py-2 z-10">
+          <div className="absolute top-2 left-2 rounded-md text-xs font-semibold backdrop-blur-sm bg-black/30 px-4 py-2 z-10">
             {item?.category}
           </div>
           <Icons.Heart

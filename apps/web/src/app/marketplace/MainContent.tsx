@@ -1,5 +1,6 @@
 import { FilterCategory } from '@/app/marketplace/FilterCategory';
 import { FiltersGroup } from '@/app/marketplace/FiltersGroup';
+import { IntervalRefreshData } from '@/app/marketplace/IntervalRefreshData';
 import {
   ItemsContainer,
   ItemsContainerLoading,
@@ -19,6 +20,7 @@ const MainContent = async () => {
             <FilterCategory />
           </div>
 
+          <IntervalRefreshData />
           <Suspense fallback={<ItemsContainerLoading />}>
             <ItemsContainer />
           </Suspense>

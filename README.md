@@ -13,7 +13,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 #### Functional capabilities
 - [ ] UI looks and feels
 - [x] API integration
-- [ ] Data refresh interval
+- [x] Data refresh interval
 - [x] Pagination (or lazy-loading) of data
 - [x] Search & filter
 - [x] Sorting

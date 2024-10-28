@@ -27,6 +27,9 @@ export const searchParamParsers = {
     MIN_PRICE_RANGE,
     MAX_PRICE_RANGE,
   ]),
+  // Data API Refresh At, in Unix Epoch
+  // Used to trigger refetch of data API
+  r: parseAsInteger.withDefault(0),
 };
 
 export type SearchParamsType = inferParserType<typeof searchParamParsers>;
