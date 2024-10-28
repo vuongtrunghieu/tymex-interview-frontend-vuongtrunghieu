@@ -1,11 +1,11 @@
 import {
+  createSearchParamsCache,
   type inferParserType,
   parseAsArrayOf,
   parseAsFloat,
   parseAsInteger,
   parseAsString,
-} from 'nuqs';
-import { createSearchParamsCache } from 'nuqs/server';
+} from 'nuqs/server';
 
 // 20 records per page
 export const LIMIT_DEFAULT = 20;

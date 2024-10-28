@@ -7,6 +7,7 @@ import {
   PAGE_DEFAULT,
   searchParamParsers,
 } from '@/app/marketplace/search-params';
+import { debounce } from '@/utils/debounce';
 import { Button } from '@fpoon-tymex/ui/button';
 import { cn } from '@fpoon-tymex/ui/cn';
 import { DualRangeSlider } from '@fpoon-tymex/ui/dual-range-slider';
@@ -21,7 +22,13 @@ import {
   SelectValue,
 } from '@fpoon-tymex/ui/select';
 import { useQueryStates } from 'nuqs';
-import React, { type KeyboardEventHandler, useMemo, useState } from 'react';
+import React, {
+  type KeyboardEventHandler,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 const DEFAULTS = {
   q: '',
@@ -48,6 +55,35 @@ export const FiltersGroup = () => {
   ]);
   const [search, setSearch] = useState(query.q || '');
 
+  const debounced = useCallback(
+    debounce(
+      ({
+        theme,
+        sortByPriceOrder,
+        sortByTimeOrder,
+        tier,
+        priceRange,
+        search,
+      }) =>
+        setQuery({
+          theme: theme || null,
+          sortByPriceOrder: sortByPriceOrder || null,
+          sortByTimeOrder: sortByTimeOrder || null,
+          tier: tier || null,
+          priceRange: priceRange || null,
+          q: search || null,
+          limit: LIMIT_DEFAULT,
+          page: PAGE_DEFAULT,
+        }),
+      1000,
+    ),
+    [setQuery],
+  );
+  /* Automatically debounce filter & sorting changes, making Search button obsoleted */
+  useEffect(() => {
+    handleFilter();
+  }, [tier, sortByPriceOrder, sortByTimeOrder, theme, search, priceRange]);
+
   const isDirty = useMemo(
     () =>
       DEFAULTS.q !== search ||
@@ -71,15 +107,13 @@ export const FiltersGroup = () => {
 
   const handleFilter = () => {
     // Commit update to URL search params, and trigger refetch of data API
-    setQuery({
-      theme: theme || null,
-      sortByPriceOrder: sortByPriceOrder || null,
-      sortByTimeOrder: sortByTimeOrder || null,
-      tier: tier || null,
-      priceRange: priceRange || null,
-      q: search || null,
-      limit: LIMIT_DEFAULT,
-      page: PAGE_DEFAULT,
+    debounced({
+      theme,
+      sortByPriceOrder,
+      sortByTimeOrder,
+      tier,
+      priceRange,
+      search,
     });
   };
 
