@@ -9,6 +9,7 @@
     "dev": "turbo dev --parallel",
     "dev:web": "turbo dev --filter=@fpoon-tymex/web",
     "dev:api": "turbo dev --filter=@fpoon-tymex/api",
+    "start": "turbo start",
     "start:web": "turbo start --filter=@fpoon-tymex/web",
     "start:api": "turbo start --filter=@fpoon-tymex/api",
     "lint": "turbo lint --parallel",

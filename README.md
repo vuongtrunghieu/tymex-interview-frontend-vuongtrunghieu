@@ -26,7 +26,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
     + [x] Accessibility A11y checks
 - Performance
     + [x] Search & filter debounce
-    + [ ] Image loading optimization (lazy-loading, caching)
+    + [x] Image loading optimization (lazy-loading, caching)
 
 #### Code quality
 

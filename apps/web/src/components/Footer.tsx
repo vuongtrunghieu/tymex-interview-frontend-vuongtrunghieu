@@ -7,8 +7,6 @@ import Link from 'next/link';
 import React from 'react';
 
 const Footer = () => {
-  // TODO complete this footer
-
   return (
     <footer className="bg-background py-8" data-testid="page-footer">
       <div className="container space-y-8">

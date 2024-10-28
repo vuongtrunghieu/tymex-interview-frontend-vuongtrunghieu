@@ -12,6 +12,7 @@ const HeroBanner = () => {
         alt="banner-background"
         className="absolute object-cover w-full h-auto"
         sizes="100vw"
+        priority
         fill
       />
       <div className="relative z-10 pt-24">
@@ -22,6 +23,7 @@ const HeroBanner = () => {
           sizes="(max-width: 480px) 100vw, (max-width: 768px) 900px, (max-width: 1200px) 1080px, 1440px"
           width={3840}
           height={1310}
+          priority
         />
       </div>
     </div>

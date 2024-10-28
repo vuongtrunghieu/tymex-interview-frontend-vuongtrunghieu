@@ -18,7 +18,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
-  // TODO Use i18n if we support localization
   const [language, setLanguage] = useState('en');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
