@@ -2,6 +2,8 @@
 
 import { API_ENDPOINT_URL } from '@/actions/products/constants';
 import { actionClient } from '@/actions/safe-action';
+// @ts-ignore
+import type { IProduct } from '@fpoon-tymex/api';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -18,8 +20,11 @@ const schema = z.object({
   priceRange: z.array(z.number()).length(2).optional(),
 });
 
+const outputSchema = z.custom<IProduct[]>();
+
 export const getProducts = actionClient
   .schema(schema)
+  .outputSchema(outputSchema)
   .action(
     async ({
       parsedInput: {
@@ -76,9 +81,7 @@ export const getProducts = actionClient
         });
         const data = await res.json();
 
-        if (!data) return [];
-
-        return data;
+        return data || [];
       } catch (err) {
         console.error(err);
         return [];

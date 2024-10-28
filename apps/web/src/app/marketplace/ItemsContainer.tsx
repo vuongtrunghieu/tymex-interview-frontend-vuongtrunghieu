@@ -1,6 +1,6 @@
 import { getProducts } from '@/actions/products/get-products-action';
 import { ItemCard, ItemCardLoading } from '@/app/marketplace/ItemCard';
-import { ScrollToTop } from '@/app/marketplace/ScrollToTop';
+import { ItemsContainerScrollToTop } from '@/app/marketplace/ItemsContainerScrollToTop';
 import { ViewMore } from '@/app/marketplace/ViewMore';
 import {
   LIMIT_DEFAULT,
@@ -26,8 +26,10 @@ export const ItemsContainer = async () => {
     sortByTimeOrder: (query.sortByTimeOrder as 'asc' | 'desc') || undefined,
   });
 
-  if (result?.validationErrors) {
-    console.error(result.validationErrors);
+  if (result?.validationErrors || result?.serverError) {
+    // TODO: Can be implemented in safe-action middleware, a cleaner way
+    console.error('Validation Errors', result.validationErrors);
+    console.error('Server Error', result.serverError);
   }
 
   if (!result || !result.data?.length) {
@@ -41,7 +43,7 @@ export const ItemsContainer = async () => {
   return (
     <>
       <ScrollArea className="h-[calc(100vh-16rem)] pr-4">
-        <ScrollToTop params={query} />
+        <ItemsContainerScrollToTop params={query} />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-8">
           {result.data.map((item: IProduct, index: number) => (
             <ItemCard item={item} key={`${item?.id}_${index}`} />

@@ -6,7 +6,9 @@ import { useEffect, useRef, useState } from 'react';
 /* This component is used to scroll to the top of items container when search params change, except for limit.
  * Because users would want to see the end of the list when they click View More button.
  *  */
-export const ScrollToTop = ({ params }: { params: SearchParamsType }) => {
+export const ItemsContainerScrollToTop = ({
+  params,
+}: { params: SearchParamsType }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [previousParams, setPreviousParams] = useState(params);
 
