@@ -12,10 +12,10 @@ const Footer = () => {
   return (
     <footer className="bg-background py-8" data-testid="page-footer">
       <div className="container space-y-8">
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
             <h3 className="text-base font-semibold mb-4 ">NAVIGATION</h3>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <div className="space-y-3 text-sm">
                 <Link href="/marketplace" className="block">
                   Home
@@ -72,24 +72,30 @@ const Footer = () => {
             <h3 className="text-base font-semibold mb-4">
               SUBSCRIBE TO RECEIVE OUR LATEST UPDATE
             </h3>
-            <div className="flex w-full max-w-sm items-center space-x-4">
-              <Label htmlFor="subscribe-form" className="sr-only">
-                Subscribe
-              </Label>
-              <Input
-                id="subscribe-form"
-                type="email"
-                placeholder="Your email address"
-                className="w-[300px] border-foreground placeholder:text-xs"
-              />
-              <Button type="submit" variant="accent" className="min-w-[150px]">
+            <div className="flex flex-col md:flex-row w-full max-w-sm md:items-center gap-4">
+              <div>
+                <Label htmlFor="subscribe-form" className="sr-only hidden">
+                  Subscribe
+                </Label>
+                <Input
+                  id="subscribe-form"
+                  type="email"
+                  placeholder="Your email address"
+                  className="md:min-w-[300px] border-foreground placeholder:text-xs"
+                />
+              </div>
+              <Button
+                type="submit"
+                variant="accent"
+                className="md:min-w-[150px]"
+              >
                 Subscribe
               </Button>
             </div>
           </div>
         </div>
         <Separator />
-        <div className="flex items-center justify-between text-sm">
+        <div className="flex flex-col-reverse gap-4 md:flex-row md:items-center justify-between text-sm">
           <p>©2023 Tyme - Edit. All Rights reserved.</p>
           <div className="space-x-8">
             <Link href="/marketplace" className="">
