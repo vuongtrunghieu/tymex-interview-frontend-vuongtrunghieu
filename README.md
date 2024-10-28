@@ -25,13 +25,13 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
     + [ ] Using Ant Design
     + [x] Accessibility A11y checks
 - Performance
-    + [ ] Search & filter debounce
+    + [x] Search & filter debounce
     + [ ] Image loading optimization (lazy-loading, caching)
 
 #### Code quality
 
 - [x] Project scaffolding
-- [ ] Unit testing
+- [x] Unit testing
 - [x] Integration testing
 - [ ] E2E testing
 - [ ] Update development documentation

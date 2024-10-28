@@ -29,6 +29,16 @@ vi.mock('nuqs/server', () => {
   };
 });
 
+vi.mock('@/app/marketplace/search-params', () => {
+  return {
+    searchParamParsers: vi.fn(),
+    LIMIT_DEFAULT: vi.fn(),
+    MAX_PRICE_RANGE: vi.fn(),
+    MIN_PRICE_RANGE: vi.fn(),
+    PAGE_DEFAULT: vi.fn(),
+  };
+});
+
 describe('FiltersGroup', () => {
   it('should render the component successfully', () => {
     render(<FiltersGroup />);
