@@ -2,7 +2,10 @@
 
 Live at: https://tymex-interview-frontend-vuongtrunghieu.vercel.app/
 
+<img src="./docs/img1.webp" width="600">
+
 ## Overview
+
 
 This is the repo contains my assignment.
 
@@ -113,3 +116,17 @@ For production deployment, you might need to adjust environment variables in you
 #### Docker
 
 - TODO
+
+### Showcase
+
+Desktop View 
+
+<img src="./docs/img1.webp" style="max-width: 1024px">
+
+Mobile Filters View 
+
+<img src="./docs/img3.webp">
+
+Sidebar & Auto system-update message
+
+<img src="./docs/img4.webp">
