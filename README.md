@@ -2,9 +2,6 @@
 
 Live at: https://tymex-interview-frontend-vuongtrunghieu.vercel.app/
 
-Please be aware that the backend server is hosted on render.com under a free plan. The server may be paused due to
-inactivity and may take up to 50 seconds to become active again.
-
 ## Overview
 
 This is the repo contains my assignment.
@@ -47,7 +44,7 @@ See [DECISIONS.md](./DECISIONS.md) for key decisions and logs.
 #### Deployment
 
 - [x] UI deployment (hosted on Vercel)
-- [x] API server deployment (hosted on Render.com)
+- [x] API server deployment (hosted on my VPS)
 - [x] Update deployment documentation
 
 #### Misc
@@ -98,7 +95,7 @@ For production deployment, you might need to adjust environment variables in you
 
 - Our application consists of two major components: the API and the web interface. In theory, we could deploy them
   separately on Vercel as two distinct projects. However, I have encountered difficulty in getting the API (json-server,
-  Node.js) to run on Vercel, so I have opted to host it on Render.com.
+  Node.js) to run on Vercel, so I have opted to host it on my VPS.
 - The Web is a Next.js application, and we can generally follow Vercel's guidelines for deploying Next.js
   applications. However, there is one caveat: we need to configure certain parameters for the Vercel build to work with
   Turbo repo. Please follow the instructions below.

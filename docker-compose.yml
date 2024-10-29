@@ -1,0 +1,30 @@
+services:
+  web:
+    container_name: fpoon-tymex-frontend
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - fpoon-tymex
+      - web
+  api:
+    container_name: fpoon-tymex-api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    restart: always
+    ports:
+      - 5005:5005
+    networks:
+      - fpoon-tymex
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  web:
+    external: true
+  fpoon-tymex:
+    internal: true
