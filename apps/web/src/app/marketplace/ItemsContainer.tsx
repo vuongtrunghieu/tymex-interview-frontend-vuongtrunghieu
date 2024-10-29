@@ -27,7 +27,7 @@ export const ItemsContainer = async () => {
   });
 
   if (result?.validationErrors || result?.serverError) {
-    // TODO: Can be implemented in safe-action middleware, a cleaner way
+    // Can be implemented in safe-action middleware, a cleaner way
     console.error('Validation Errors', result.validationErrors);
     console.error('Server Error', result.serverError);
   }
