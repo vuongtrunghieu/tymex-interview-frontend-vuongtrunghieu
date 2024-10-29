@@ -2,8 +2,8 @@
 
 Live at: https://tymex-interview-frontend-vuongtrunghieu.vercel.app/
 
-Keep in mind that backend server is hosted on render.com on free plan. Server may be paused due to inactivity, and may take
-up 50s to be active.
+Please be aware that the backend server is hosted on render.com under a free plan. The server may be paused due to
+inactivity and may take up to 50 seconds to become active again.
 
 ## Overview
 
@@ -96,10 +96,12 @@ For production deployment, you might need to adjust environment variables in you
 
 #### Vercel
 
-- Our application contains 2 major parts: API and Web. In theory, we can deploy them separately on vercel as 2 projects.
-  However, I have trouble getting API (json-server, Node.js) server running on Vercel. So I host it on render.com
-- Web is Next.js application. We can generally follow Vercel guide on how to deploy Next.js app on Vercel. With one
-  caveat: we need to config some params for Vercel build to work with Turbo. Follow the instruction below
+- Our application consists of two major components: the API and the web interface. In theory, we could deploy them
+  separately on Vercel as two distinct projects. However, I have encountered difficulty in getting the API (json-server,
+  Node.js) to run on Vercel, so I have opted to host it on Render.com.
+- The Web is a Next.js application, and we can generally follow Vercel's guidelines for deploying Next.js
+  applications. However, there is one caveat: we need to configure certain parameters for the Vercel build to work with
+  Turbo repo. Please follow the instructions below.
 - Vercel deployment configuration:
     + Framework Preset: choose Next.js
     + Build Options: `cd ../.. && pnpm run build`
