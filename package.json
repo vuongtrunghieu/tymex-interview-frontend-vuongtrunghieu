@@ -3,8 +3,9 @@
   "private": true,
   "author": "Hieu Vuong Trung <fpoon@protonmail.com>",
   "scripts": {
-    "build": "turbo build",
-    "clean": "git clean -xdf node_modules",
+    "build": "turbo build && pnpm build:copy",
+    "build:copy": "mkdir -p dist && cp -R apps/web/.next ./dist/.next",
+    "clean": "git clean -xdf node_modules dist",
     "clean:workspaces": "turbo clean --parallel",
     "dev": "turbo dev --parallel",
     "dev:web": "turbo dev --filter=@fpoon-tymex/web",
