@@ -24,9 +24,6 @@ importers:
         specifier: ^0.17.4
         version: 0.17.4
     devDependencies:
-      '@fpoon-tymex/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/node':
         specifier: 20.14.8
         version: 20.14.8
