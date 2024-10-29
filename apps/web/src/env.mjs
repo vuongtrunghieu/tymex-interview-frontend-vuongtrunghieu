@@ -10,7 +10,7 @@ export const env = createEnv({
   },
   runtimeEnv: {
     API_ENDPOINT: process.env.API_ENDPOINT,
-    API_REFRESH_INTERVAL: process.env.API_REFRESH_INTERVAL,
+    API_REFRESH_INTERVAL: +process.env.API_REFRESH_INTERVAL,
   },
   skipValidation: !!process.env.CI || !!process.env.SKIP_ENV_VALIDATION,
 });
